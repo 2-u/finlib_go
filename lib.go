@@ -34,7 +34,16 @@ func CalcCompountInterestAmount(initAmount float64, interestRate float64, durati
 	return initAmount * math.Pow(1+(interestRate/100)/numOfTimesCompoundedPerYear, numOfTimesCompoundedPerYear*durationInYears)
 }
 
-func CalcPresentValue( futureValue float64, annualInterestRate float64, durationInYears float64 ) float64 {
+/**
+  Pretend you want a certain amount of money in the future. Calculate how much you need to start with today.
+  Let's say I want to have $4,000,000 in 30 years with the money growing at 25% a year.
+  How much initial money do I need to presently have for the scenario above to happen?
+  inputs:
+  - the money you have in the future
+  - the interest rate you assume to be getting
+  - the number of years it will take you to get to the future
+*/
+func CalcPresentValue(futureValue float64, annualInterestRate float64, durationInYears float64) float64 {
 
-  return futureValue / math.Pow( 1 + annualInterestRate/100, durationInYears )
+	return futureValue / math.Pow(1+annualInterestRate/100, durationInYears)
 }
