@@ -37,3 +37,14 @@ func TestCalcPresentValue(t *testing.T) {
 		t.Errorf("Error: Testing TestCalcPresentValue")
 	}
 }
+
+func TestCalcPercentChange(t *testing.T) {
+
+  percentChange := CalcPercentChange(32.69, 32.31)
+  t.Log("CalcPercentChange(32.69, 32.31) = ")
+  t.Log(percentChange)
+
+  if percentChange != 0.1248 {
+    t.Errorf("Error: Testing funcTestCalcPercentChange")
+  }
+}

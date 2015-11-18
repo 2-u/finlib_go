@@ -47,3 +47,8 @@ func CalcPresentValue(futureValue float64, annualInterestRate float64, durationI
 
 	return futureValue / math.Pow(1+annualInterestRate/100, durationInYears)
 }
+
+func CalcPercentChange(fromVal float64, toVal float64) float64 {
+
+	return (toVal - fromVal) / fromVal
+}
