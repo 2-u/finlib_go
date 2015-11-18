@@ -52,3 +52,14 @@ func CalcPercentChange(fromVal float64, toVal float64) float64 {
 
 	return (toVal - fromVal) / fromVal
 }
+
+func CalcAvg(dataSlice []float64) float64 {
+
+	sum := 0.0
+
+	for i := range dataSlice {
+		sum += float64(dataSlice[i])
+	}
+
+	return float64(sum) / float64(len(dataSlice))
+}
