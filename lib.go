@@ -63,3 +63,27 @@ func CalcAvg(dataSlice []float64) float64 {
 
 	return float64(sum) / float64(len(dataSlice))
 }
+
+func CalcRSI(dataSlice15 []float64) float64 {
+
+	upSum := 0.0
+	downSum := 0.0
+
+	for i := 0; i < len(dataSlice15)-1; i++ {
+
+		curPrice := dataSlice15[i]
+		tomPrice := dataSlice15[i+1]
+
+		if curPrice < tomPrice {
+			upSum += tomPrice - curPrice
+		} else {
+			downSum += curPrice - tomPrice
+		}
+	}
+
+	avgUp := upSum / 14.0
+	avgDown := downSum / 14.0
+	relativeStrength := avgUp / avgDown
+
+	return 100 - 100/(1+relativeStrength)
+}
