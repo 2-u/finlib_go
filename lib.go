@@ -87,3 +87,18 @@ func CalcRSI(dataSlice15 []float64) float64 {
 
 	return 100 - 100/(1+relativeStrength)
 }
+
+func HyperTanFunction(x float64) float64 {
+
+	// This function is used in neural network programming
+	// as an activation function. Use this for neural nets
+	// with range from -1 to 1
+
+	if x < -20.0 {
+		return -1.0 // approximation is correct to 30 decimals
+	} else if x > 20.0 {
+		return 1.0
+	}
+
+	return math.Tanh(x)
+}
