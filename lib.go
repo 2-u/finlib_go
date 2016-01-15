@@ -102,3 +102,16 @@ func HyperTanFunction(x float64) float64 {
 
 	return math.Tanh(x)
 }
+
+func CalcCreditSpreadCommissions(numOfSpreads float64) float64 {
+
+	// TD Ameritrade costs $9.99 per trade + 0.75 per contract
+	return numOfSpreads*2*0.75 + 9.99
+}
+
+func CalcCreditSpreadMaxLoss(strikesWidth float64, numOfSpreads float64, creditCollectedAmt float64) float64 {
+
+	// This function calculates the maximum loss for
+	// Bull Put and Bear Call spreads.
+	return numOfSpreads*strikesWidth*100 - creditCollectedAmt + CalcCreditSpreadCommissions(numOfSpreads)
+}

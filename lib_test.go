@@ -70,10 +70,30 @@ func TestCalcRSI(t *testing.T) {
 
 func TestHyperTanFunction(t *testing.T) {
 
-  tanhResult := HyperTanFunction(0.123)
-  t.Log( "HyperTanFunction(0.123) = ", tanhResult )
+	tanhResult := HyperTanFunction(0.123)
+	t.Log("HyperTanFunction(0.123) = ", tanhResult)
 
-  if tanhResult != 0.1248 {
-    t.Errorf("Error: Testing HyperTanFunction" )
+	if tanhResult != 0.1248 {
+		t.Errorf("Error: Testing HyperTanFunction")
+	}
+}
+
+func TestCalcCreditSpreadCommissions(t *testing.T) {
+
+	commission := CalcCreditSpreadCommissions(2)
+	t.Log("CalcCreditSpreadCommissions( 2 ) = ", commission)
+
+	if commission != 0.1248 {
+		t.Errorf("Error: Testing CalcCreditSpreadCommissions")
+	}
+}
+
+func TestCalcCreditSpreadMaxLoss(t *testing.T) {
+
+  maxLoss := CalcCreditSpreadMaxLoss(5, 2, 480)
+  t.Log("CalcCreditSpreadMaxLoss(5, 2, 480) = ", maxLoss)
+
+  if maxLoss != 0.1248 {
+    t.Errorf("Error: Testing CalcCreditSpreadMaxLoss")
   }
 }
