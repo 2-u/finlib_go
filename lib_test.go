@@ -90,10 +90,40 @@ func TestCalcCreditSpreadCommissions(t *testing.T) {
 
 func TestCalcCreditSpreadMaxLoss(t *testing.T) {
 
-  maxLoss := CalcCreditSpreadMaxLoss(5, 2, 480)
-  t.Log("CalcCreditSpreadMaxLoss(5, 2, 480) = ", maxLoss)
+	maxLoss := CalcCreditSpreadMaxLoss(5, 2, 480)
+	t.Log("CalcCreditSpreadMaxLoss(5, 2, 480) = ", maxLoss)
 
-  if maxLoss != 0.1248 {
-    t.Errorf("Error: Testing CalcCreditSpreadMaxLoss")
-  }
+	if maxLoss != 0.1248 {
+		t.Errorf("Error: Testing CalcCreditSpreadMaxLoss")
+	}
+}
+
+func TestCalcCreditSpreadMaxProfit(t *testing.T) {
+
+	maxProfit := CalcCreditSpreadMaxProfit(2, 480)
+	t.Log("CalcCreditSpreadMaxProfit(2, 480) = ", maxProfit)
+
+	if maxProfit != 0.1248 {
+		t.Errorf("Error: Testing CalcCreditSpreadMaxProfit")
+	}
+}
+
+func TestCalcBearCallSpreadBreakEvenPrice(t *testing.T) {
+
+	breakeven := CalcBearCallSpreadBreakEvenPrice(300, 2.40)
+	t.Log("CalcBearCallSpreadBreakEvenPrice(300, 2.40) = ", breakeven)
+
+	if breakeven != 0.1248 {
+		t.Errorf("Error: Testing CalcBearCallSpreadBreakEvenPrice")
+	}
+}
+
+func TestCalcBullPutSpreadBreakEvenPrice(t *testing.T) {
+
+	breakeven := CalcBullPutSpreadBreakEvenPrice(250, 1.65)
+	t.Log("CalcBullPutSpreadBreakEvenPrice(250, 1.65) = ", breakeven)
+
+	if breakeven != 0.1248 {
+		t.Errorf("Error: Testing CalcBullPutSpreadBreakEvenPrice")
+	}
 }

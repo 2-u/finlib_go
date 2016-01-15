@@ -112,6 +112,27 @@ func CalcCreditSpreadCommissions(numOfSpreads float64) float64 {
 func CalcCreditSpreadMaxLoss(strikesWidth float64, numOfSpreads float64, creditCollectedAmt float64) float64 {
 
 	// This function calculates the maximum loss for
-	// Bull Put and Bear Call spreads.
+	// Bull Put and Bear Call spreads (includes commissions).
 	return numOfSpreads*strikesWidth*100 - creditCollectedAmt + CalcCreditSpreadCommissions(numOfSpreads)
+}
+
+func CalcCreditSpreadMaxProfit(numOfSpreads float64, creditCollectedAmt float64) float64 {
+
+	// Calculates the max profit for
+	// Bull Put and Bear Call spreads (includes commissions).
+	return creditCollectedAmt - CalcCreditSpreadCommissions(numOfSpreads)
+}
+
+func CalcBearCallSpreadBreakEvenPrice(longOptionStrikePrice float64, spreadPrice float64) float64 {
+
+	// Calculates the break even price of
+	// Bear Call spreads.
+	return longOptionStrikePrice + spreadPrice
+}
+
+func CalcBullPutSpreadBreakEvenPrice(shortOptionStrikePrice float64, spreadPrice float64) float64 {
+
+	// Calculates the break even price of
+	// Bull Put spreads.
+	return shortOptionStrikePrice - spreadPrice
 }
