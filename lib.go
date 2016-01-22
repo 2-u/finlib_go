@@ -113,26 +113,28 @@ func CalcCreditSpreadMaxLoss(strikesWidth float64, numOfSpreads float64, creditC
 
 	// This function calculates the maximum loss for
 	// Bull Put and Bear Call spreads (includes commissions).
-	return numOfSpreads*strikesWidth*100 - creditCollectedAmt + CalcCreditSpreadCommissions(numOfSpreads)
+	return numOfSpreads*(strikesWidth-creditCollectedAmt)*100 + 2*CalcCreditSpreadCommissions(numOfSpreads)
 }
 
 func CalcCreditSpreadMaxProfit(numOfSpreads float64, creditCollectedAmt float64) float64 {
 
 	// Calculates the max profit for
 	// Bull Put and Bear Call spreads (includes commissions).
-	return creditCollectedAmt - CalcCreditSpreadCommissions(numOfSpreads)
+	return numOfSpreads*creditCollectedAmt*100 - CalcCreditSpreadCommissions(numOfSpreads)
 }
 
-func CalcBearCallSpreadBreakEvenPrice(longOptionStrikePrice float64, spreadPrice float64) float64 {
+func CalcCreditSpreadBreakEvenPrice(shortOptionStrikePrice float64, longOptionStrikePrice float64, creditCollectedAmt float64) float64 {
 
-	// Calculates the break even price of
-	// Bear Call spreads.
-	return longOptionStrikePrice + spreadPrice
+	if shortOptionStrikePrice < longOptionStrikePrice {
+		return shortOptionStrikePrice + creditCollectedAmt
+	}
+
+	return shortOptionStrikePrice - creditCollectedAmt
 }
 
-func CalcBullPutSpreadBreakEvenPrice(shortOptionStrikePrice float64, spreadPrice float64) float64 {
+func CalcCreditSpreadTradeExitPrice(soldPrice float64, boughtBackPrice float64, numOfSpreads float64) float64 {
 
-	// Calculates the break even price of
-	// Bull Put spreads.
-	return shortOptionStrikePrice - spreadPrice
+	// Calculates the profit or loss made when exiting your
+	// Bull Put or Bear Call Spread (includes commissions on trade entry and exit).
+	return (soldPrice-boughtBackPrice)*100*numOfSpreads - 2*CalcCreditSpreadCommissions(numOfSpreads)
 }
