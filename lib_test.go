@@ -8,41 +8,28 @@ func TestCalcMortgagePayment(t *testing.T) {
 
 	mortgagePayment := CalcMortgagePayment(240000, 360, 3.5)
 	t.Log("mortgagePayment(240000, 360, 3.5) =", mortgagePayment)
-
-	if mortgagePayment != 0.1248 {
-		t.Errorf("Error: Testing CalcMortgagePayment")
-	}
+  t.Errorf("Error: Testing CalcMortgagePayment")
 }
 
 func TestCalcCompountInterestAmount(t *testing.T) {
 
 	amountWithCompoundedInterest := CalcCompountInterestAmount(12000, 5, 30, 365)
 	t.Log("amountWithCompoundedInterest(12000, 5, 30, 365) =", amountWithCompoundedInterest)
-
-	// Force it to be wrong
-	if amountWithCompoundedInterest != 0.1248 {
-		t.Errorf("Error: Testing CalcCompountInterestAmount")
-	}
+	t.Errorf("Error: Testing CalcCompountInterestAmount")
 }
 
 func TestCalcPresentValue(t *testing.T) {
 
 	presentValue := CalcPresentValue(4000000, 25, 15)
 	t.Log("presentValue(4000000, 25, 15) =", presentValue)
-
-	if presentValue != 0.1248 {
-		t.Errorf("Error: Testing CalcPresentValue")
-	}
+	t.Errorf("Error: Testing CalcPresentValue")
 }
 
 func TestCalcPercentChange(t *testing.T) {
 
 	percentChange := CalcPercentChange(32.69, 32.31)
 	t.Log("CalcPercentChange(32.69, 32.31) =", percentChange)
-
-	if percentChange != 0.1248 {
-		t.Errorf("Error: Testing CalcPercentChange")
-	}
+	t.Errorf("Error: Testing CalcPercentChange")
 }
 
 func TestCalcAvg(t *testing.T) {
@@ -50,10 +37,7 @@ func TestCalcAvg(t *testing.T) {
 	testSlice := []float64{3.2, 4.6, 7.3}
 	avg := CalcAvg(testSlice)
 	t.Log("CalcAvg(3.2,4.6,7.3) =", avg)
-
-	if avg != 0.1248 {
-		t.Errorf("Error: Testing CalcAvg")
-	}
+	t.Errorf("Error: Testing CalcAvg")
 }
 
 func TestCalcRSI(t *testing.T) {
@@ -62,50 +46,35 @@ func TestCalcRSI(t *testing.T) {
 	testSlice := []float64{104.750000, 103.550003, 99.220001, 99.169998, 105.889999, 100.279999, 99.410004, 99.430000, 30.240000, 26.809999, 26.990000, 26.809999, 26.410000, 25.709999, 27.830000}
 	RSI := CalcRSI(testSlice)
 	t.Log("CalcRSI =", RSI)
-
-	if RSI != 0.1248 {
-		t.Errorf("Error: Testing CalcRSI")
-	}
+	t.Errorf("Error: Testing CalcRSI")
 }
 
 func TestHyperTanFunction(t *testing.T) {
 
 	tanhResult := HyperTanFunction(0.123)
 	t.Log("HyperTanFunction(0.123) = ", tanhResult)
-
-	if tanhResult != 0.1248 {
-		t.Errorf("Error: Testing HyperTanFunction")
-	}
+	t.Errorf("Error: Testing HyperTanFunction")
 }
 
 func TestCalcCreditSpreadCommissions(t *testing.T) {
 
 	commission := CalcCreditSpreadCommissions(2)
 	t.Log("CalcCreditSpreadCommissions( 2 ) = ", commission)
-
-	if commission != 0.1248 {
-		t.Errorf("Error: Testing CalcCreditSpreadCommissions")
-	}
+	t.Errorf("Error: Testing CalcCreditSpreadCommissions")
 }
 
 func TestCalcCreditSpreadMaxLoss(t *testing.T) {
 
 	maxLoss := CalcCreditSpreadMaxLoss(5, 2, 2.30)
 	t.Log("CalcCreditSpreadMaxLoss(5, 2, 2.30) = ", maxLoss)
-
-	if maxLoss != 0.1248 {
-		t.Errorf("Error: Testing CalcCreditSpreadMaxLoss")
-	}
+	t.Errorf("Error: Testing CalcCreditSpreadMaxLoss")
 }
 
 func TestCalcCreditSpreadMaxProfit(t *testing.T) {
 
 	maxProfit := CalcCreditSpreadMaxProfit(2, 2.30)
 	t.Log("CalcCreditSpreadMaxProfit(2, 2.30) = ", maxProfit)
-
-	if maxProfit != 0.1248 {
-		t.Errorf("Error: Testing CalcCreditSpreadMaxProfit")
-	}
+	t.Errorf("Error: Testing CalcCreditSpreadMaxProfit")
 }
 
 func TestCalcCreditSpreadBreakEvenPrice(t *testing.T) {
@@ -116,9 +85,7 @@ func TestCalcCreditSpreadBreakEvenPrice(t *testing.T) {
 	breakeven = CalcCreditSpreadBreakEvenPrice(5, 10, 2.30)
 	t.Log("Bear Call CalcCreditSpreadBreakEvenPrice(5, 10, 2.30) = ", breakeven)
 
-	if breakeven != 0.1248 {
-		t.Errorf("Error: Testing CalcBearCallSpreadBreakEvenPrice")
-	}
+	t.Errorf("Error: Testing CalcBearCallSpreadBreakEvenPrice")
 }
 
 func TestCalcCreditSpreadTradeExitPrice(t *testing.T) {
@@ -126,7 +93,5 @@ func TestCalcCreditSpreadTradeExitPrice(t *testing.T) {
 	exitPrice := CalcCreditSpreadTradeExitPrice(.65, .1, 3)
 	t.Log("CalcCreditSpreadTradeExitPrice(.65, .1, 3) = ", exitPrice)
 
-	if exitPrice != 0.1248 {
-		t.Errorf("Error: Testing CalcCreditSpreadTradeExitPrice")
-	}
+	t.Errorf("Error: Testing CalcCreditSpreadTradeExitPrice")
 }
