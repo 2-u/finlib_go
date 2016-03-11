@@ -138,3 +138,8 @@ func CalcCreditSpreadTradeExitPrice(soldPrice float64, boughtBackPrice float64, 
 	// Bull Put or Bear Call Spread (includes commissions on trade entry and exit).
 	return (soldPrice-boughtBackPrice)*100*numOfSpreads - 2*CalcCreditSpreadCommissions(numOfSpreads)
 }
+
+func CalcCreditSpreadProbabilityOfProfit(creditCollectedAmt float64, strikePriceWidth float64) float64 {
+
+	return 100.0 - ((creditCollectedAmt / strikePriceWidth) * 100.0)
+}

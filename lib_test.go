@@ -8,7 +8,7 @@ func TestCalcMortgagePayment(t *testing.T) {
 
 	mortgagePayment := CalcMortgagePayment(240000, 360, 3.5)
 	t.Log("mortgagePayment(240000, 360, 3.5) =", mortgagePayment)
-  t.Errorf("Error: Testing CalcMortgagePayment")
+	t.Errorf("Error: Testing CalcMortgagePayment")
 }
 
 func TestCalcCompountInterestAmount(t *testing.T) {
@@ -94,4 +94,12 @@ func TestCalcCreditSpreadTradeExitPrice(t *testing.T) {
 	t.Log("CalcCreditSpreadTradeExitPrice(.65, .1, 3) = ", exitPrice)
 
 	t.Errorf("Error: Testing CalcCreditSpreadTradeExitPrice")
+}
+
+func TestCalcCreditSpreadProbabilityOfProfit(t *testing.T) {
+
+	probability := CalcCreditSpreadProbabilityOfProfit(.35, 1)
+	t.Log("CalcCreditSpreadProbabilityOfProfit(.35, 1) = ", probability)
+
+	t.Errorf("Error: Testing CalcCreditSpreadProbabilityOfProfit")
 }
