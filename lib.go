@@ -143,3 +143,13 @@ func CalcCreditSpreadProbabilityOfProfit(creditCollectedAmt float64, strikePrice
 
 	return 100.0 - ((creditCollectedAmt / strikePriceWidth) * 100.0)
 }
+
+func CalcMyCustomSupportPrice(strikePrice float64, atmCallAskPrice float64, atmPutAskPrice float64, multiplier float64) float64 {
+
+	return strikePrice - ((atmCallAskPrice + atmPutAskPrice) * multiplier)
+}
+
+func CalcMyCustomResistancePrice(strikePrice float64, atmCallAskPrice float64, atmPutAskPrice float64, multiplier float64) float64 {
+
+	return strikePrice + ((atmCallAskPrice + atmPutAskPrice) * multiplier)
+}
